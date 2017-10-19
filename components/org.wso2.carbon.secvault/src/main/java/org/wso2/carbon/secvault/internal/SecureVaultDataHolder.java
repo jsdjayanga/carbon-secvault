@@ -16,7 +16,7 @@
 
 package org.wso2.carbon.secvault.internal;
 
-import org.osgi.framework.BundleContext;
+//import org.osgi.framework.BundleContext;
 import org.wso2.carbon.secvault.MasterKeyReader;
 import org.wso2.carbon.secvault.SecretRepository;
 import org.wso2.carbon.secvault.model.SecureVaultConfiguration;
@@ -30,7 +30,7 @@ import java.util.Optional;
  */
 public class SecureVaultDataHolder {
     private static SecureVaultDataHolder instance = new SecureVaultDataHolder();
-    private BundleContext bundleContext;
+//    private BundleContext bundleContext;
     private SecretRepository secretRepository;
     private MasterKeyReader masterKeyReader;
     private SecureVaultConfiguration secureVaultConfiguration;
@@ -83,23 +83,23 @@ public class SecureVaultDataHolder {
         this.masterKeyReader = masterKeyReader;
     }
 
-    /**
-     * Get bundle context.
-     *
-     * @return bundle context
-     */
-    public Optional<BundleContext> getBundleContext() {
-        return Optional.ofNullable(bundleContext);
-    }
-
-    /**
-     * Set bundle context.
-     *
-     * @param bundleContext OSGi bundle context
-     */
-    public void setBundleContext(BundleContext bundleContext) {
-        this.bundleContext = bundleContext;
-    }
+//    /**
+//     * Get bundle context.
+//     *
+//     * @return bundle context
+//     */
+//    public Optional<BundleContext> getBundleContext() {
+//        return Optional.ofNullable(bundleContext);
+//    }
+//
+//    /**
+//     * Set bundle context.
+//     *
+//     * @param bundleContext OSGi bundle context
+//     */
+//    public void setBundleContext(BundleContext bundleContext) {
+//        this.bundleContext = bundleContext;
+//    }
 
     /**
      * Getter method of secure vault configuration instance.

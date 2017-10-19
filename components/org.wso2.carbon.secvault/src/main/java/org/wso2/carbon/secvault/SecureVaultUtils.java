@@ -19,7 +19,7 @@ package org.wso2.carbon.secvault;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.carbon.secvault.exception.SecureVaultException;
-import org.wso2.carbon.secvault.internal.SecureVaultDataHolder;
+//import org.wso2.carbon.secvault.internal.SecureVaultDataHolder;
 import org.wso2.carbon.secvault.model.SecureVaultConfiguration;
 import org.wso2.carbon.utils.StringUtils;
 import org.yaml.snakeyaml.Yaml;
@@ -264,14 +264,14 @@ public class SecureVaultUtils {
         return Optional.of(Paths.get(path.get()));
     }
 
-    /**
-     * Check whether the environment is OSGI or not.
-     *
-     * @return true is environment is OSGI false if not OSGI.
-     */
-    public static boolean isOSGIEnv() {
-        return SecureVaultDataHolder.getInstance().getBundleContext().isPresent();
-    }
+//    /**
+//     * Check whether the environment is OSGI or not.
+//     *
+//     * @return true is environment is OSGI false if not OSGI.
+//     */
+//    public static boolean isOSGIEnv() {
+//        return SecureVaultDataHolder.getInstance().getBundleContext().isPresent();
+//    }
 
     private static String readFromEnvironment(String alias) {
         return Optional.ofNullable(alias)

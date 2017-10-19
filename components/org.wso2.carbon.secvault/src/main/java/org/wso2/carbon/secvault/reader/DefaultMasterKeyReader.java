@@ -16,9 +16,6 @@
 
 package org.wso2.carbon.secvault.reader;
 
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.carbon.secvault.MasterKey;
@@ -61,24 +58,10 @@ import java.util.Set;
  *
  * @since 5.0.0
  */
-@Component(
-        name = "org.wso2.carbon.secvault.reader.DefaultMasterKeyReader",
-        immediate = true
-)
 public class DefaultMasterKeyReader implements MasterKeyReader {
     private static Logger logger = LoggerFactory.getLogger(DefaultMasterKeyReader.class);
     private Set<String> relocationPaths = new HashSet<>();
     private MasterKeyReaderConfiguration masterKeyReaderConfiguration;
-
-    @Activate
-    public void activate() {
-        logger.debug("Activating DefaultMasterKeyReader");
-    }
-
-    @Deactivate
-    public void deactivate() {
-        logger.debug("Deactivating DefaultMasterKeyReader");
-    }
 
     @Override
     public void init(MasterKeyReaderConfiguration masterKeyReaderConfiguration) throws SecureVaultException {

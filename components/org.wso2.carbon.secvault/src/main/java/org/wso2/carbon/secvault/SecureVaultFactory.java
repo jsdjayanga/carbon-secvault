@@ -50,14 +50,14 @@ public class SecureVaultFactory {
                 .orElseThrow(() -> new SecureVaultException("Error occurred when obtaining secure vault " +
                         "configuration."));
 
-        if (SecureVaultUtils.isOSGIEnv()) {
-            // Get master key reader
-            masterKeyReader = SecureVaultDataHolder.getInstance().getMasterKeyReader()
-                    .orElseThrow(() -> new SecureVaultException("Master key reader type is not set"));
-            // Get secret repository
-            secretRepository = SecureVaultDataHolder.getInstance().getSecretRepository()
-                    .orElseThrow(() -> new SecureVaultException("Secret repository type is not set"));
-        } else {
+//        if (SecureVaultUtils.isOSGIEnv()) {
+//            // Get master key reader
+//            masterKeyReader = SecureVaultDataHolder.getInstance().getMasterKeyReader()
+//                    .orElseThrow(() -> new SecureVaultException("Master key reader type is not set"));
+//            // Get secret repository
+//            secretRepository = SecureVaultDataHolder.getInstance().getSecretRepository()
+//                    .orElseThrow(() -> new SecureVaultException("Secret repository type is not set"));
+//        } else {
             // Instantiate master key reader.
             String masterKeyReaderType = secureVaultConfiguration.getMasterKeyReaderConfig().getType()
                     .orElseThrow(() -> new SecureVaultException("Master key reader type is not set"));
@@ -69,7 +69,7 @@ public class SecureVaultFactory {
                     .orElseThrow(() -> new SecureVaultException("Secret repository type is not set"));
             secretRepository = createInstance(secretRepositoryType, SecretRepository.class);
             SecureVaultDataHolder.getInstance().setSecretRepository(secretRepository);
-        }
+//        }
         SecureVault secureVault = getSecureVault(secureVaultConfiguration, masterKeyReader, secretRepository);
         logger.debug("Secure Vault initialized successfully");
         return Optional.ofNullable(secureVault);
